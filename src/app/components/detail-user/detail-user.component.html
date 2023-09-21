@@ -1,0 +1,83 @@
+<div class="row mb-1 custom-border">
+
+  <div class="col-md-2 border-right m-1">
+    <div class="m-1">
+      <img [src]="userDto.photo? userDto.photo: 'assets/image/user.jpg'" height="60" width="60">
+    </div>
+  </div>
+  <div class="col-md-4 border-right m-1">
+    <div class="col">
+      <div class="row d-flex flex-nowrap">
+        <div class="col-md-1"><i class="fas fa-info-circle"></i></div>
+        <div class="col-md-11">{{userDto.lastName}}</div>
+      </div>
+      <div class="row d-flex flex-nowrap">
+        <div class="col-md-1"><i class="fas fa-info-circle"></i></div>
+        <div class="col-md-11">{{userDto.firstName}}</div>
+      </div>
+      <div class="row d-flex flex-nowrap">
+        <div class="col-md-1"><i class="fas fa-info-circle"></i></div>
+        <div class="col-md-11">{{userDto.numberTel}}</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3 border-right m-1 d-flex align-items-center">
+    `   <div class="col">
+    <div class="row d-flex flex-nowrap">
+      <div class="col-md-1"><i class="fas fa-home"></i></div>
+      <div class="col-md-11">{{userDto.addessDto?.address}}</div>
+    </div>
+    <div class="row d-flex flex-nowrap">
+      <div class="col-md-1"><i class="fas fa-map-marked"></i></div>
+      <div class="col-md-11">{{userDto.addessDto?.city}}</div>
+    </div>
+    <div class="row d-flex flex-nowrap">
+      <div class="col-md-1"><i class="fas fa-globe-africa"></i></div>
+      <div class="col-md-11">{{userDto.addessDto?.country}}</div>
+    </div>
+  </div>
+  </div>
+  <div class="col-md-3 m-1 d-flex align-items-center">
+    <div class="row me-2">
+      <div class="col-md-4">
+        <button class="btn btn-link btn-sm text-secondary btn-action" (click)="modifiderUser()">
+          <i class="fas fa-pencil"></i>&nbsp;Modifier
+        </button>
+      </div>
+      <div class="col-md-4">
+        <button class="btn btn-link btn-sm text-danger btn-action" data-bs-toggle="modal"
+                [attr.data-bs-target]="'#modalDeleteArticle' + userDto.id">
+          <i class="fas fa-trash-alt"></i>&nbsp;Supprimer
+        </button>
+      </div>
+      <div class="col-md-4">
+        <button class="btn btn-link btn-sm text-primary btn-action">
+          <i class="fas fa-list-alt"></i>&nbsp;Details
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="modalDeleteArticle{{userDto.id}}" data-bs-backdrop="static"
+       data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Confirmation</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Etes vous sur de vouloir supprimer cet utilisateur?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            <i class="fas fa-ban"></i>&nbsp;Annuler
+          </button>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="confirmerSuppressionUser()">
+            <i class="fas fa-trash-can"></i>&nbsp;Supprimer
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

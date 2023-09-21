@@ -1,0 +1,50 @@
+<div class="container my-container">
+  <div class="card justify-content-md-center">
+    <div class="card-header text-center">
+      <h4>Inscription</h4>
+    </div>
+    <div class="card-body">
+      <div class="alert alert-danger" *ngIf="errorsMsg.length > 0">
+        <div *ngFor="let msg of errorsMsg">
+          <span>{{msg}}</span>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <input type="text" name="name" class="form-control form-control-sm"
+                 placeholder="Nom" [(ngModel)]="schoolDto.name">
+        </div>
+        <div class="col-md-6">
+          <input type="text" name="slogan" class="form-control form-control-sm"
+                 placeholder="Slogan" [(ngModel)]="schoolDto.slogan">
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <input type="text" name="numTel" class="form-control form-control-sm"
+                 placeholder="Numero de telephone" [(ngModel)]="schoolDto.numberTel">
+        </div>
+        <div class="col-md-6">
+          <input type="text" name="address" class="form-control form-control-sm"
+                 placeholder="Adresse" [(ngModel)]="addressDto.address">
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <input type="text" name="city" class="form-control form-control-sm"
+                 placeholder="Ville" [(ngModel)]="addressDto.city">
+        </div>
+        <div class="col-md-6">
+          <input type="text" name="country" class="form-control form-control-sm"
+                 placeholder="Pays" [(ngModel)]="addressDto.country">
+        </div>
+      </div>
+      <div class="d-flex justify-content-between">
+        <a [routerLink]="['/login']" class="btn btn-link btn-sm">Se connecter</a>
+        <button type="button" class="btn btn-primary btn-sm" (click)="inscrire()">
+          <i class="fas fa-check"></i>&nbsp;S'inscrire
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,81 @@
+<div class="col mb-3 mt-3 container">
+  <div class="col-md-12 mb-3">
+    <button (click)="fileInput.click()" style="background-color: transparent; border: none;">
+      <img [src]="imgUrl" class="rounded-circle" height="200px" width="200px">
+      <input hidden type="file" #fileInput (change)="onFileInput(fileInput.files)">
+    </button>
+  </div>
+  <hr>
+  <div class="col-md-12">
+    <div class="col-md-12 mb-3">
+      <h3><i class="fas fa-info-circle"></i>&nbsp;Informations de l'utilisateur</h3>
+    </div>
+    <div class="col-md-12">
+      <form>
+        <div class="alert alert-danger" *ngIf="errorsMsg.length > 0">
+          <div *ngFor="let msg of errorsMsg">
+            <span>{{msg}}</span>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col">
+            <input type="text" class="form-control form-control-sm" name="firstname"
+                   placeholder="Prenom" [(ngModel)]="userDto.firstName">
+          </div>
+          <div class="col">
+            <input type="text" class="form-control form-control-sm"
+                   placeholder="Adresse" name="address" [(ngModel)]="addressDto.address">
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col">
+            <input type="text" class="form-control form-control-sm"
+                   placeholder="Nom" name="lastname" [(ngModel)]="userDto.lastName">
+          </div>
+          <div class="col">
+            <input type="text" class="form-control form-control-sm"
+                   placeholder="Ville" name="city" [(ngModel)]="addressDto.city">
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col">
+            <input type="date" class="form-control form-control-sm"
+                   placeholder="Date de naissance" name="birthday" [(ngModel)]="userDto.birthDay">
+          </div>
+          <div class="col">
+            <input type="text" class="form-control form-control-sm"
+                   placeholder="Pays" name="country" [(ngModel)]="addressDto.country">
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col">
+            <input type="text" class="form-control form-control-sm"
+                   placeholder="Numero de telephone" name="numbertel" [(ngModel)]="userDto.numberTel">
+          </div>
+          <div class="col">
+            <input type="email" class="form-control form-control-sm"
+                   placeholder="Adresse email" name="email" [(ngModel)]="userDto.email">
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col">
+            <input type="text" class="form-control form-control-sm"
+                   placeholder="Nom d'utilisateur" name="username" [(ngModel)]="userDto.username">
+          </div>
+          <div class="col">
+            <input type="password" class="form-control form-control-sm"
+                   placeholder="Mot de passe" name="password" [(ngModel)]="userDto.password">
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="col-md-12 text-end">
+    <button type="button" class="btn btn-danger btn-sm me-3" (click)="cancelClick()">
+      <i class="fas fa-ban"></i>&nbsp;Annuler
+    </button>
+    <button type="button" class="btn btn-primary btn-sm" (click)="enregistrer()">
+      <i class="fas fa-save"></i>&nbsp;Enregistrer
+    </button>
+  </div>
+</div>

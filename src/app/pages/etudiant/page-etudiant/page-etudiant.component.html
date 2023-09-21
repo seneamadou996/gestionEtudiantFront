@@ -1,0 +1,21 @@
+<div class="cotainer mt-5">
+  <div class="col-md-10 offset-1">
+    <div class="row">
+      <div class="col-md-9">
+        <h4><i class="fas fa-list"></i>&nbsp;Liste des etudiants</h4>
+      </div>
+      <div class="col-md-3 text-end">
+        <button class="btn btn-primary btn-success" (click)="nouvelEtudiant()">
+          <i class="fas fa-plus"></i>&nbsp;Ajouter
+        </button>
+      </div>
+    </div>
+    <div class="mt-3">
+      <app-detail-etudiant
+        *ngFor="let etud of listEtudiants"
+        [etudiantDto]="etud"
+        (suppressionResult)="handleSuppression($event)"
+      ></app-detail-etudiant>
+    </div>
+  </div>
+</div>
